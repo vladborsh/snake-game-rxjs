@@ -1,3 +1,3 @@
-import { appendCanvasAndGetContext } from "./canvas";
+import { appendCanvasAndGetContext } from "./canvas/canvas";
 
 appendCanvasAndGetContext();

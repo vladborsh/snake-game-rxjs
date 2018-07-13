@@ -3,7 +3,9 @@ import { BehaviorSubject, interval } from "rxjs";
 import { scan, share, startWith, withLatestFrom } from "rxjs/operators";
 import { direction$ } from "../control/control";
 import { move } from "./move";
-import { generateSnake } from "./generate-snake";
+import { generateSnake } from "./generators/generate-snake";
+import { generateApples } from "./generators/generate-apples";
+import { eat } from "./eat";
 
 let length$ = new BehaviorSubject<number>(INITIAL_SNALE_LENGTH);
 
@@ -19,11 +21,17 @@ export const score$ = snakeLength$
         scan((score, _) => score + POINTS_PER_APPLE),
     );
 
-export const $ticks = interval(GAME_SPEED);
+export const ticks$ = interval(GAME_SPEED);
 
-export const $snake = $ticks
+export const snake$ = ticks$
     .pipe(
         withLatestFrom(direction$, snakeLength$, (_, direction, snakeLength) => [direction, snakeLength]),
         scan(move, generateSnake()),
         share()
     );
+
+export const apples$ = snake$
+    .pipe(
+        scan(eat, generateApples())
+    );
+

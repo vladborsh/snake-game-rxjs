@@ -2,7 +2,7 @@ import { fromEvent } from 'rxjs';
 import { map, filter, scan, startWith, distinctUntilChanged } from 'rxjs/operators';
 import { DIRECTIONS, INITIAL_DIRECTION } from '../configs/direction.config';
 import { Directions } from '../models/direction.model';
-import { nexDirection } from '../helpers/nextDirection.helper';
+import { nexDirection } from '../helpers/next-direction.helper';
 
 export const direction$ = fromEvent(document, 'keydown')
     .pipe(

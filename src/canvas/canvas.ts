@@ -1,4 +1,4 @@
-import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../configs/canvas.config";
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from '../configs/canvas.config';
 
 export function createCanvasElement(): HTMLCanvasElement {
     const canvas = document.createElement('canvas');
@@ -8,8 +8,8 @@ export function createCanvasElement(): HTMLCanvasElement {
 }
 
 export function appendCanvasAndGetContext(): CanvasRenderingContext2D {
-    let canvas = createCanvasElement();
-    let ctx = canvas.getContext('2d');
+    const canvas = createCanvasElement();
+    const ctx = canvas.getContext('2d');
     document.body.appendChild(canvas);
     return ctx;
 }
