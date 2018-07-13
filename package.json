@@ -1,0 +1,32 @@
+{
+  "name": "snake-rxjs.game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start ./karma.conf.js --browsers PhantomJS",
+    "test:chrome": "karma start ./karma.conf.js --browsers Chrome",
+    "webpack": "webpack -w",
+    "build": "webpack --disable-bs"
+  },
+  "author": "Vlad",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^2.8.7",
+    "browser-sync": "^2.24.4",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "jasmine": "^3.1.0",
+    "karma": "^2.0.2",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-firefox-launcher": "^1.1.0",
+    "karma-jasmine": "^1.1.2",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack": "^3.0.0",
+    "phantomjs-prebuilt": "^2.1.16",
+    "ts-loader": "^4.3.0",
+    "ts-node": "^6.0.5",
+    "typescript": "^2.8.3",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.4"
+  }
+}
