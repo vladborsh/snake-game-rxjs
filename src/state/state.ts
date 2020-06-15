@@ -1,6 +1,6 @@
 import { INITIAL_SNALE_LENGTH, POINTS_PER_APPLE, GAME_SPEED } from "../configs/state.config";
 import { BehaviorSubject, interval } from "rxjs";
-import { scan, share, startWith, withLatestFrom } from "rxjs/operators";
+import { scan, share, startWith, withLatestFrom, skip, tap } from "rxjs/operators";
 import { direction$ } from "../control/control";
 import { move } from "./move";
 import { generateSnake } from "./generators/generate-snake";
@@ -35,3 +35,9 @@ export const apples$ = snake$
         scan(eat, generateApples())
     );
 
+export const appleEaten$ = apples$
+    .pipe(
+        skip(1),
+        tap(() => length$.next(POINTS_PER_APPLE)),
+    )
+    .subscribe()
